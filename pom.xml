@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.pq</groupId>
+    <artifactId>pq-aggregator</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+
+        <junit.version>4.12</junit.version>
+        <jdk.version>1.8</jdk.version>
+        <commons-lang3.version>3.1</commons-lang3.version>
+        <jackson.version>2.8.1</jackson.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>ep</id>
+            <name>HN Artifactory Relsease</name>
+            <url>http://47.95.196.166:8081/nexus/content/repositories/release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ep</id>
+            <name>HN Artifactory Snapshots</name>
+            <url>http://47.95.196.166:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Dalston.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <modules>
+        <module>../pq-common</module>
+        <module>../pq-eureka-service</module>
+        <module>../pq-api</module>
+        <module>../pq-user-service</module>
+        <module>../pq-agency-service</module>
+        <module>../pq-reading-service</module>
+        <module>../pq-information-service</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <threshold>High</threshold>
+                    <effort>Default</effort>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
+                    <!-- findbugs xml输出路径-->
+                    <findbugsXmlOutputDirectory>target/site</findbugsXmlOutputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.15</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
