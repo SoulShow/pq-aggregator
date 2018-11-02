@@ -75,6 +75,8 @@
         <module>../pq-agency-service</module>
         <module>../pq-reading-service</module>
         <module>../pq-information-service</module>
+        <module>../pq-job-admin</module>
+
     </modules>
 
     <build>
