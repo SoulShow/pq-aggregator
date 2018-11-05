@@ -26,14 +26,14 @@
 
     <distributionManagement>
         <repository>
-            <id>ep</id>
+            <id>pq</id>
             <name>HN Artifactory Relsease</name>
-            <url>http://47.95.196.166:8081/nexus/content/repositories/release/</url>
+            <url>http://47.92.82.130:3001/nexus/content/repositories/release/</url>
         </repository>
         <snapshotRepository>
-            <id>ep</id>
+            <id>pq</id>
             <name>HN Artifactory Snapshots</name>
-            <url>http://47.95.196.166:8081/nexus/content/repositories/snapshots</url>
+            <url>http://47.92.82.130:3001/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
